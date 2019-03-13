@@ -17,8 +17,7 @@ historical_transactions = historical_transactions[historical_transactions['top10
 historical_transactions = pd.get_dummies(historical_transactions, columns=['merchant_category_id'])
 
 df_sum = historical_transactions[['card_id', 'merchant_category_id_2']].groupby('card_id').sum()
-cols = list(historical_transactions.columns.values)
-cols = cols[2:]
+cols = list(historical_transactions.columns.values)[2:]
 
 for col in tqdm(cols):
     df_sum[col] = historical_transactions[['card_id', col]].groupby('card_id').sum()
