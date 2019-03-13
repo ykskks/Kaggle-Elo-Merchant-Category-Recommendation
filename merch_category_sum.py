@@ -7,8 +7,8 @@ import pandas as pd
 import gc
 from tqdm import tqdm
 
-historical_transactions = pd.read_csv('../input/historical_transactions.csv', usecols=['card_id', 'merchant_category_id'])
-new_transactions = pd.read_csv('../input/new_merchant_transactions.csv', usecols=['card_id', 'merchant_category_id'])
+historical_transactions = pd.read_csv('./input/historical_transactions.csv', usecols=['card_id', 'merchant_category_id'])
+new_transactions = pd.read_csv('./input/new_merchant_transactions.csv', usecols=['card_id', 'merchant_category_id'])
 
 top100_category = historical_transactions['merchant_category_id'].value_counts()[:100].keys()
 
